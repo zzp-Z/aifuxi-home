@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-// @ts-check
 import eslint from "@eslint/js";
 import eslintPluginCheckFile from "eslint-plugin-check-file";
 import eslintPluginImport from "eslint-plugin-import";

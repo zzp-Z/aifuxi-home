@@ -5,16 +5,15 @@ import { Button } from "@/components/ui/button";
 import {
   IconBrandGithub,
   IconLogoBing,
-  IconLogoCentOS,
   IconLogoGoogle,
-  IconLogoRockyLinux,
   IconSkillCSS,
-  IconSkillDebianDark,
-  IconSkillDebianLight,
   IconSkillDocker,
   IconSkillFigmaDark,
   IconSkillFigmaLight,
+  IconSkillGolang,
   IconSkillHTML,
+  IconSkillJavaDark,
+  IconSkillJavaLight,
   IconSkillJavaScript,
   IconSkillMysqlDark,
   IconSkillMysqlLight,
@@ -23,15 +22,22 @@ import {
   IconSkillNginx,
   IconSkillNodejsDark,
   IconSkillNodejsLight,
-  IconSkillPrisma,
+  IconSkillNuxtjsDark,
+  IconSkillNuxtjsLight,
+  IconSkillPythonDark,
+  IconSkillPythonLight,
+  IconSkillRabbitmqDark,
+  IconSkillRabbitmqLight,
   IconSkillReactDark,
   IconSkillReactLight,
-  IconSkillStackoverflowDark,
-  IconSkillStackoverflowLight,
   IconSkillTailwindcssDark,
   IconSkillTailwindcssLight,
   IconSkillTypeScript,
+  IconSkillVuejsDark,
+  IconSkillVuejsLight,
+  IconVscodeGoZero,
 } from "@/components/icons";
+import { IconLogoUbuntu } from "@/components/icons/logos/icon-logo-ubuntu";
 
 import { NICKNAME } from "@/constants";
 import { socialMediaList } from "@/features/home";
@@ -57,7 +63,8 @@ export default function Page() {
           <h2>我是谁</h2>
           <p>
             Hi~ 我是{NICKNAME}
-            ，一名前端开发工程师，2020年大专毕业，喜欢 Coding 和打游戏
+            ，一名啥都不会的互联网工程师，2021年毕业，喜欢 Coding
+            和打游戏（Csgo或者Valorant欢迎找我）
           </p>
         </div>
 
@@ -88,18 +95,28 @@ export default function Page() {
               <IconSkillTypeScript className="mx-1 translate-y-0.5" />
               TypeScript +
               <>
-                <IconSkillReactDark className="mx-1 translate-y-0.5 dark:hidden" />
-                <IconSkillReactLight className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+                <IconSkillReactLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillReactDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
               </>
               React +
               <>
-                <IconSkillNextjsDark className="mx-1 translate-y-0.5 dark:hidden" />
-                <IconSkillNextjsLight className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+                <IconSkillNextjsLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillNextjsDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
               </>
-              Next.js + ahooks +
+              Next.js +
               <>
-                <IconSkillTailwindcssDark className="mx-1 translate-y-0.5 dark:hidden" />
-                <IconSkillTailwindcssLight className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+                <IconSkillVuejsLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillVuejsDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+              </>
+              Vue.js +
+              <>
+                <IconSkillNuxtjsLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillNuxtjsDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+              </>
+              Nuxt.js +
+              <>
+                <IconSkillTailwindcssLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillTailwindcssDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
               </>
               Tailwind CSS，熟练使用
             </li>
@@ -115,23 +132,40 @@ export default function Page() {
           <ul>
             <li>
               <>
-                <IconSkillNodejsDark className="mx-1 translate-y-0.5 dark:hidden" />
-                <IconSkillNodejsLight className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+                <IconSkillJavaLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillJavaDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
               </>
-              Node.js，能简单 CRUD 水平
+              Java +
+              <>
+                <IconSkillGolang className="mx-1 translate-y-0.5" />
+              </>
+              Golang +
+              <>
+                <IconSkillNodejsLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillNodejsDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+              </>
+              Node.js +
+              <>
+                <IconSkillPythonLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillPythonDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+              </>
+              Python
             </li>
             <li>
               <>
-                <IconSkillNextjsDark className="mx-1 translate-y-0.5 dark:hidden" />
-                <IconSkillNextjsLight className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+                <IconVscodeGoZero className="mx-1 translate-y-0.5" />
               </>
-              Next.js + <IconSkillPrisma className="mx-1 translate-y-0.5" />
-              Prisma +
+              Microservices +
               <>
-                <IconSkillMysqlDark className="mx-1 translate-y-0.5 dark:hidden" />
-                <IconSkillMysqlLight className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+                <IconSkillRabbitmqLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillRabbitmqDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
               </>
-              MySQL 搞全栈开发
+              Message Queue +
+              <>
+                <IconSkillMysqlLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillMysqlDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+              </>
+              Database
             </li>
           </ul>
         </div>
@@ -144,75 +178,35 @@ export default function Page() {
           <h3>其它</h3>
           <ul>
             <li>
-              Zsh + Oh My Zsh + iTerm2 + JetBrainsMono Nerd Font Mono，舒服的很
-            </li>
-            <li>
-              用过 <IconLogoCentOS className="mx-1 translate-y-0.5" />
-              CentOS、
-              <>
-                <IconSkillDebianDark className="mx-1 translate-y-0.5 dark:hidden" />
-                <IconSkillDebianLight className="mx-1 hidden translate-y-0.5 dark:inline-block" />
-              </>
-              Debian、
-              <IconLogoRockyLinux className="mx-1 translate-y-0.5" />
-              Rocky Linux （最近使用）
+              <IconLogoUbuntu className="mx-1 translate-y-0.5" />
+              Ubuntu
             </li>
             <li>
               <IconSkillDocker className="mx-1 translate-y-0.5" />
-              Docker +
-              <span className="line-through">Docker Desktop 太卡了</span>+
-              Orbstack，Docker 本地起数据库服务是真的方便
+              Docker （配置服务是真的方便）
             </li>
             <li>
               使用
               <span>
                 <IconSkillNginx className="mx-1 translate-y-0.5" />
-                NGINX 配置 反向代理 + HTTPS + 开启 HTTP2
+                NGINX 配置 反向代理 + HTTPS
               </span>
             </li>
             <li>
               <>
-                <IconSkillFigmaDark className="mx-1 translate-y-0.5 dark:hidden" />
-                <IconSkillFigmaLight className="mx-1 hidden translate-y-0.5 dark:inline-block" />
+                <IconSkillFigmaLight className="mx-1 translate-y-0.5 dark:hidden" />
+                <IconSkillFigmaDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
               </>
-              Figma，会一点，用来画画图标，制作博客封面非常方便
+              Figma，只会用来看
             </li>
             <li>
               熟练使用 <IconLogoGoogle className="mx-1 translate-y-0.5" />
               Google/
               <IconLogoBing className="mx-1 translate-y-0.5" />
-              Bing 搜索
-              <span className="ml-1 line-through">百度（浪费生命）</span> +
+              Bing 搜索 +
               <IconBrandGithub className="mx-1 translate-y-0.5" />
-              GitHub +
-              <>
-                <IconSkillStackoverflowDark className="mx-1 translate-y-0.5 dark:hidden" />
-                <IconSkillStackoverflowLight className="mx-1 hidden translate-y-0.5 dark:inline-block" />
-              </>
-              Stack Overflow + Chat GPT 解决遇到的各种问题，复制粘贴我最行 🙋
+              GitHub + Chat GPT 解决遇到的各种问题，复制粘贴我最行 🙋
             </li>
-          </ul>
-        </div>
-
-        <div
-          className="animate-fade-up animate-ease-in-out"
-          style={{
-            animationDelay: `${getDelay()}ms`,
-          }}
-        >
-          <h2>我的设备</h2>
-          <ul>
-            <li>
-              MacBook Pro 14-inch M3 Max：64G + 2TB，
-              <span className="line-through">
-                赚的几个窝囊费全花电子产品上去了
-              </span>
-              🙃
-            </li>
-            <li>微星（msi） GP76：64G + 1TB + RTX3070</li>
-            <li>LG 27英寸 4K</li>
-            <li>键盘：珂芝（KIZI）K75</li>
-            <li>鼠标：罗技（G）PRO 2代</li>
           </ul>
         </div>
 

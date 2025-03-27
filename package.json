@@ -18,7 +18,8 @@
     "db:gen": "prisma generate",
     "db:dev": "prisma migrate dev",
     "db:studio": "prisma studio",
-    "db:push": "prisma db push"
+    "db:push": "prisma db push",
+    "docker": "docker build -t zipang0218/homepage:latest -t zipang0218/homepage:0.2 ."
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.4.2",
@@ -32,6 +33,7 @@
     "@iconify-json/fa6-brands": "^1.1.18",
     "@iconify-json/logos": "^1.1.42",
     "@iconify-json/skill-icons": "^1.1.8",
+    "@iconify-json/vscode-icons": "^1.2.17",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "@next/bundle-analyzer": "15.0.1",
     "@next/third-parties": "15.0.1",
@@ -71,6 +73,7 @@
     "lowlight": "^3.1.0",
     "lucide-react": "^0.378.0",
     "mini-svg-data-uri": "^1.4.4",
+    "minio": "^8.0.5",
     "next": "15.0.1",
     "next-auth": "5.0.0-beta.25",
     "next-sitemap": "^4.2.3",

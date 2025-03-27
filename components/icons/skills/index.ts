@@ -16,3 +16,8 @@ export * from "./icon-skill-react";
 export * from "./icon-skill-tailwindcss";
 export * from "./icon-skill-typescript";
 export * from "./icon-skill-stackoverflow";
+export * from "./icon-skill-java";
+export * from "./icon-skill-nuxtjs";
+export * from "./icon-skill-python";
+export * from "./icon-skill-rabbitmq";
+export * from "./icon-skill-vuejs";

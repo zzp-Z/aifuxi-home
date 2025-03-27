@@ -1,22 +1,23 @@
-import OSS from "ali-oss";
+import { Client } from "minio";
 
 import {
   NODE_ENV,
   OSS_ACCESS_KEY_ID,
   OSS_ACCESS_KEY_SECRET,
-  OSS_BUCKET,
+  OSS_PORT,
   OSS_REGION,
 } from "@/config";
 
-const globalForAliOSS = global as unknown as { aliOSS: OSS | undefined };
+const globalForMinIO = global as unknown as { minioClient: Client | undefined };
 
 export const aliOSS =
-  globalForAliOSS.aliOSS ??
-  new OSS({
-    accessKeyId: OSS_ACCESS_KEY_ID ?? "",
-    accessKeySecret: OSS_ACCESS_KEY_SECRET ?? "",
-    region: OSS_REGION ?? "",
-    bucket: OSS_BUCKET ?? "",
+  globalForMinIO.minioClient ??
+  new Client({
+    endPoint: OSS_REGION ?? "localhost", // MinIO 的服务器地址，通常是 IP 或域名
+    port: OSS_PORT ?? 9000, // 默认端口是 9000
+    useSSL: false, // 是否启用 SSL，根据配置调整
+    accessKey: OSS_ACCESS_KEY_ID ?? "",
+    secretKey: OSS_ACCESS_KEY_SECRET ?? "",
   });
 
-if (NODE_ENV !== "production") globalForAliOSS.aliOSS = aliOSS;
+if (NODE_ENV !== "production") globalForMinIO.minioClient = aliOSS;

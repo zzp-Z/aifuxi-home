@@ -59,9 +59,13 @@ export const HeroSection = () => {
         }}
       >
         喜欢
-        <span className={`font-semibold text-[#00d8ff]`}>React</span>、
-        <span className={`font-semibold text-[#007acc]`}>TypeScript</span>
-        <span className="ml-4">\owo/ ~</span>
+        <span className={`font-semibold text-[#007acc]`}>Go</span>
+        <span className={`text-2xl`}>、</span>
+        <span className="font-semibold text-[#009fde]">TS</span>
+        <span className={`text-2xl`}>、</span>
+        <span className={`font-semibold text-[#00bfd1]`}>React</span>
+        <span className={`text-2xl`}>、</span>
+        <span className={`font-semibold text-[#00d9ad]`}>Python</span>
       </p>
       <p
         className={cn(

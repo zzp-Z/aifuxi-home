@@ -6,7 +6,7 @@ import path from "node:path";
 import { readChunk } from "read-chunk";
 import sharp from "sharp";
 
-import { OSS_UPLOAD_DIR } from "@/config";
+import { OSS_BUCKET, OSS_PORT, OSS_REGION, OSS_UPLOAD_DIR } from "@/config";
 
 import { isProduction } from "@/utils/env";
 
@@ -97,20 +97,23 @@ const compressImage = async (input: string): Promise<string> => {
 };
 
 const uploadToOSS = async (input: string) => {
-  const inputFilePath = getFilePath(input);
-  const fileName = path.basename(inputFilePath);
-  const buffer = fs.readFileSync(inputFilePath);
-  const { name } = await aliOSS.put(
-    `${OSS_UPLOAD_DIR}/${fileName}`,
-    Buffer.from(buffer),
+  const inputFilePath = getFilePath(input); // 获取文件路径
+  const fileName = path.basename(inputFilePath); // 提取文件名
+  const buffer = fs.readFileSync(inputFilePath); // 读取文件为 Buffer
+
+  // 在 MinIO 上存储对象
+  await aliOSS.putObject(
+    OSS_BUCKET ?? "", // 存储桶名称
+    `${OSS_UPLOAD_DIR}/${fileName}`, // 对象名称
+    buffer, // 文件 Buffer
   );
-  let url = aliOSS.generateObjectUrl(name);
+  // 生成访问链接
+  let url = `${OSS_REGION}:${OSS_PORT}/${OSS_BUCKET}/${OSS_UPLOAD_DIR}/${fileName}`;
   if (url) {
-    // 阿里云 OSS 上传后返回的链接是默认是http协议的（但实际上它是也支持https），这里手动替换成https
-    // 因为线上环境网站是使用https协议的，网站里面所有的链接/请求都应该走https（最佳实践是这样）
-    // 要不然浏览器搜索栏会有个小感叹号，不太好看
+    // 替换为 https 链接（如果需要）
     url = url.replace(/http:\/\//g, "https://");
   }
+
   return url;
 };
 

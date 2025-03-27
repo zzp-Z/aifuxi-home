@@ -40,4 +40,7 @@ const config = {
   },
 };
 
+if (process.env.IS_DOCKER) {
+  config.output = "standalone";
+}
 export default withBundleAnalyzer(config);

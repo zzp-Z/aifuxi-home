@@ -100,8 +100,9 @@ export const AdminLayout = ({ children }: React.PropsWithChildren) => {
       <header className="sticky inset-x-0 top-0 z-20 flex h-16 items-center border-b bg-background/50 px-5 backdrop-blur">
         <Link href="/" className="flex items-center">
           <img
-            src="/images/fuxiaochen-logo.svg"
+            src="/images/logo.svg"
             className="mr-2 size-8 rounded-md border "
+           alt='logo'
           />
           <span className="text-base font-semibold">{NICKNAME}后台管理</span>
         </Link>

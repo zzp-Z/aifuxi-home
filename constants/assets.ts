@@ -1,5 +1,5 @@
 export const ImageAssets = {
   gongan: "/images/gongan.png",
-  logoLight: "/images/fuxiaochen-light.svg",
-  logoDark: "/images/fuxiaochen-dark.svg",
+  logoLight: "/images/logo-light.svg",
+  logoDark: "/images/logo-dark.svg",
 };

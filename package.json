@@ -19,7 +19,7 @@
     "db:dev": "prisma migrate dev",
     "db:studio": "prisma studio",
     "db:push": "prisma db push",
-    "docker": "docker build -t zipang0218/homepage:latest -t zipang0218/homepage:0.2 ."
+    "docker": "docker build -t zipang0218/homepage:latest -t zipang0218/homepage:0.3 ."
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.4.2",

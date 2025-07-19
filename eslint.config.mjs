@@ -25,6 +25,8 @@ export default tseslint.config(
       "postcss.config.cjs",
       "next-sitemap.config.cjs",
       "tailwind.config.ts",
+      "eslint.config.mjs",
+      "src/blocks/**"
     ],
   },
   eslint.configs.recommended,

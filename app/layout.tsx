@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { type Metadata } from "next";
 import Script from "next/script";
-
+import SplashCursor from '@/components/reactbits/cursor/SplashCursor'
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { NEXT_PUBLIC_UMAMI_URL, NEXT_PUBLIC_UMAMI_WEBSITE_ID } from "@/config";
@@ -63,6 +63,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
           disableTransitionOnChange
         >
           <TooltipProvider>
+            <SplashCursor/>
             {children}
 
             <ReactHotToaster />

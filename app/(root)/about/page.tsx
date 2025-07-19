@@ -63,8 +63,6 @@ export default function Page() {
           <h2>我是谁</h2>
           <p>
             Hi~ 我是{NICKNAME}
-            ，一名啥都不会的互联网工程师，2021年毕业，喜欢 Coding
-            和打游戏（Csgo或者Valorant欢迎找我）
           </p>
         </div>
 
@@ -89,7 +87,7 @@ export default function Page() {
               <IconSkillHTML className="mx-1 translate-y-0.5" /> HTML +
               <IconSkillCSS className="mx-1 translate-y-0.5" />
               CSS + <IconSkillJavaScript className="mx-1 translate-y-0.5" />
-              JavaScript ，熟练使用
+              JavaScript ，略知一二
             </li>
             <li>
               <IconSkillTypeScript className="mx-1 translate-y-0.5" />
@@ -118,7 +116,7 @@ export default function Page() {
                 <IconSkillTailwindcssLight className="mx-1 translate-y-0.5 dark:hidden" />
                 <IconSkillTailwindcssDark className="mx-1 hidden translate-y-0.5 dark:inline-block" />
               </>
-              Tailwind CSS，熟练使用
+              Tailwind CSS，略知一二
             </li>
           </ul>
         </div>

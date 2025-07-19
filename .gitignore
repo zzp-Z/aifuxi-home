@@ -53,3 +53,4 @@ yarn-error.log*
 /meili_data
 
 .idea
+/.env.local

@@ -2,6 +2,8 @@
 
 # 阶段1: 基础环境
 FROM node:22-alpine AS base
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
+    && apk add --no-cache libc6-compat
 RUN apk add --no-cache libc6-compat
 # 使用现代且安全的 openssl 替代 libssl1.1
 RUN apk add --no-cache openssl

@@ -5,19 +5,14 @@ services:
     environment:
       # 方法一：设置时区为上海
       - TZ=Asia/Shanghai
-      # - SET_CONTAINER_TIMEZONE=true # 方法二： 设置时区为上海
-      # - CONTAINER_TIMEZONE=Asia/Shanghai # 方法二： 设置时区为上海
       # mysql启动时自动创建数据库
-      - MYSQL_DATABASE=fuxiaochen
+      - MYSQL_DATABASE=homepage
       # 设置root账户密码
-      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=123123
     volumes:
       - mysql8_data:/data/db
-    # 和本机共享网络，设置了host模式的网络，就不需要暴露端口了，因为是和主机共享了
-    # network_mode: 'host'
-    # 设置了host模式的网络，就不需要暴露端口了，因为是和主机共享了
     ports:
-      - "3306:3306"
+      - "13306:3306"
     command: [
         "mysqld",
         # 设置字符编码
@@ -27,12 +22,13 @@ services:
 
   umami:
     image: ghcr.io/umami-software/umami:postgresql-latest
-    ports:
-      - "3000:3000"
+    #    ports:
+    #      不再暴露出3000，而是加入nginx网络，通过nginx代理进行访问
+    #      - "3000:3000"
     environment:
       DATABASE_URL: postgresql://umami:umami@db:5432/umami
       DATABASE_TYPE: postgresql
-      APP_SECRET: replace-me-with-a-random-string
+      APP_SECRET: afwahbefgawigearroaebazfegeargaFawrgfaagrea
     depends_on:
       db:
         condition: service_healthy

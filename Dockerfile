@@ -30,7 +30,7 @@ ENV IS_DOKCER=ture
 
 RUN corepack enable pnpm && pnpm db:gen;
 #RUN npx update-browserslist-db@latest
-RUN corepack enable pnpm && pnpm run build;
+RUN corepack enable pnpm && pnpm run build:standalone;
 
 
 # Production image, copy all the files and run next

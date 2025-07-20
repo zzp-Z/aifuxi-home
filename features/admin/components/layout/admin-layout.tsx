@@ -102,7 +102,7 @@ export const AdminLayout = ({ children }: React.PropsWithChildren) => {
           <img
             src="/images/logo.svg"
             className="mr-2 size-8 rounded-md border "
-           alt='logo'
+            alt="logo"
           />
           <span className="text-base font-semibold">{NICKNAME}后台管理</span>
         </Link>

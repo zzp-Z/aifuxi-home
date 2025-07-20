@@ -9,6 +9,22 @@ import React, { useEffect, useRef } from "react";
 	Installed from https://reactbits.dev/ts/tailwind/
 */
 
+/*
+	Installed from https://reactbits.dev/ts/tailwind/
+*/
+
+/*
+	Installed from https://reactbits.dev/ts/tailwind/
+*/
+
+/*
+	Installed from https://reactbits.dev/ts/tailwind/
+*/
+
+/*
+	Installed from https://reactbits.dev/ts/tailwind/
+*/
+
 interface ColorRGB {
   r: number;
   g: number;

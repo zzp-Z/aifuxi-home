@@ -6,7 +6,8 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 
 /** @type {import("next").NextConfig} */
 const config = {
-  output: 'standalone',
+  output:
+    process.env.NEXT_OUTPUT_STANDALONE === "true" ? "standalone" : undefined,
   // build 阶段禁止 eslint
   eslint: { ignoreDuringBuilds: true },
   // build 阶段禁止 ts 类型检查

@@ -40,7 +40,8 @@
     ".prettierrc.cjs",
     ".commitlintrc.cjs",
     "postcss.config.cjs",
-    "next-sitemap.config.cjs"
+    "next-sitemap.config.cjs",
+    "types.d.ts"
   ],
   "exclude": ["node_modules"]
 }

@@ -38,7 +38,6 @@ interface Pointer {
   color: ColorRGB;
 }
 
-
 interface TextureFormat {
   internalFormat: number;
   format: number;
@@ -162,7 +161,8 @@ export default function SplashCursor({
 
       const halfFloatTexType = isWebGL2
         ? (gl as WebGL2RenderingContext).HALF_FLOAT
-        : (halfFloat && (halfFloat as OES_texture_half_float).HALF_FLOAT_OES) ?? 0;
+        : (halfFloat && (halfFloat as OES_texture_half_float).HALF_FLOAT_OES) ??
+          0;
 
       let formatRGBA: TextureFormat | null;
       let formatRG: TextureFormat | null;

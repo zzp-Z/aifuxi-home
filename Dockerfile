@@ -1,63 +1,53 @@
 # syntax=docker.io/docker/dockerfile:1
 
+# 阶段1: 基础环境
 FROM node:22-alpine AS base
 RUN apk add --no-cache libc6-compat
-RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.13/main/ libssl1.1
+# 使用现代且安全的 openssl 替代 libssl1.1
+RUN apk add --no-cache openssl
 
-# Install dependencies only when needed
+# 阶段2: 依赖安装
 FROM base AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
+# 精确复制必要文件（避免通配符问题）
+COPY package.json pnpm-lock.yaml .npmrc* ./
+RUN --mount=type=cache,id=pnpm,target=/root/.pnpm-store \
+    export COREPACK_ENABLE_STRICT=false && \
+    corepack enable pnpm && \
+    pnpm i --frozen-lockfile --prod;
 
-# Install dependencies based on the preferred package manager
-COPY package.json pnpm-lock.yaml* .npmrc* ./
-RUN export COREPACK_ENABLE_STRICT=false && corepack enable pnpm && pnpm i --frozen-lockfile;
-
-
-
-# Rebuild the source code only when needed
+# 阶段3: 构建应用
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV IS_DOKCER=ture
+# 修正拼写
+ENV IS_DOCKER=true 
 
-RUN corepack enable pnpm && pnpm db:gen;
-#RUN npx update-browserslist-db@latest
-RUN corepack enable pnpm && pnpm run build:standalone;
+# 添加构建缓存优化
+RUN --mount=type=cache,target=/app/.next/cache \
+    corepack enable pnpm && \
+    pnpm db:gen && \
+    pnpm run build:standalone;
 
-
-# Production image, copy all the files and run next
+# 阶段4: 运行环境
 FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
-# Uncomment the following line in case you want to disable telemetry during runtime.
 ENV NEXT_TELEMETRY_DISABLED=1
+# 修正 Next.js 监听变量
+ENV HOST=0.0.0.0  
+ENV PORT=3000
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
-
 EXPOSE 3000
-
-ENV PORT=3000
-
-# server.js is created by next build from the standalone output
-# https://nextjs.org/docs/pages/api-reference/config/next-config-js/output
-ENV HOSTNAME="0.0.0.0"
 CMD ["node", "server.js"]

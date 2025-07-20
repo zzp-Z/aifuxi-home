@@ -28,7 +28,6 @@ export const HeroSection = () => {
         }}
       >
         你好，我是
-        
       </p>
       <strong
         className={cn(
@@ -77,7 +76,7 @@ export const HeroSection = () => {
           animationDelay: `${getDelay()}ms`,
         }}
       >
-        我将在这个网站记录我的成长，努力 💪 成为一个更好的程序员。
+        我在这个网站记录我的成长，努力 💪 成为一个更好的程序员。
       </p>
       <div
         className={cn("flex space-x-4", "animate-fade-up animate-ease-in-out")}

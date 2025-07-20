@@ -16,7 +16,7 @@ COPY package.json pnpm-lock.yaml .npmrc* ./
 RUN --mount=type=cache,id=pnpm,target=/root/.pnpm-store \
     export COREPACK_ENABLE_STRICT=false && \
     corepack enable pnpm && \
-    pnpm i --frozen-lockfile --prod;
+    pnpm i --frozen-lockfile;
 
 # 阶段3: 构建应用
 FROM base AS builder

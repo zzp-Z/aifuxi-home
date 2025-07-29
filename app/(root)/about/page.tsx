@@ -61,7 +61,7 @@ export default function Page() {
           }}
         >
           <h2>我是谁</h2>
-          <p>Hi~ 我是{NICKNAME}</p>
+          <p>Hello~ 我是{NICKNAME}</p>
         </div>
 
         <div
